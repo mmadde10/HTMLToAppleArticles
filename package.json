@@ -1,0 +1,35 @@
+{
+  "name": "htmltoapplearticles",
+  "version": "1.0.0",
+  "description": "Convert Regular HTML article Pages into Apple Articles",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin/dev",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir dist && babel src -s -d dist",
+    "production": "npm run build && node bin/production",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmadde10/HTMLToAppleArticles.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmadde10/HTMLToAppleArticles/issues"
+  },
+  "homepage": "https://github.com/mmadde10/HTMLToAppleArticles#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^21.2.1",
+    "regenerator-runtime": "^0.11.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "moment": "^2.19.1"
+  }
+}
