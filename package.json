@@ -14,7 +14,20 @@
     "type": "git",
     "url": "git+https://github.com/mmadde10/Notitia.git"
   },
-  "keywords": ["html", "amp", "facebook", "instant", "article", "converter", "ampit", "htmltoAMP", "htmltoFaceBookInstantArticle", "Accerated Mobile Pages","Apple Article","Apple"],
+  "keywords": [
+    "html",
+    "amp",
+    "facebook",
+    "instant",
+    "article",
+    "converter",
+    "ampit",
+    "htmltoAMP",
+    "htmltoFaceBookInstantArticle",
+    "Accerated Mobile Pages",
+    "Apple Article",
+    "Apple"
+  ],
   "author": "Mark Madden",
   "license": "ISC",
   "bugs": {
@@ -26,13 +39,16 @@
     "babel-jest": "^21.2.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^21.2.1",
-    "regenerator-runtime": "^0.11.0"
+    "regenerator-runtime": "^0.11.0",
+    "webpack": "^3.8.1"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "html": "^1.0.0",
     "jshint": "^2.9.5",
     "moment": "^2.19.1",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   }
 }
