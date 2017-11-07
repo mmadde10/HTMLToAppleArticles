@@ -10,7 +10,7 @@ let prettyArticle = pretty.prettyPrint(ampPage, {indent_size: 2});
 //Returns AMP Complient HTML
 ```
 ```javascript
-let ampPage = Notitia(1,contents,1);
+let ampPage = Notitia(1,contents);
 let prettyArticle = pretty.prettyPrint(ampPage, {indent_size: 2}); 
   console.log("finish FB\n",prettyArticle);
 //Returns FaceBook Instant Article HTML
