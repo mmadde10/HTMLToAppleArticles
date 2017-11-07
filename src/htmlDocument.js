@@ -1,3 +1,4 @@
+'use strict';
 import * as cheerio from 'cheerio';
 import moment from 'moment';
 
@@ -59,9 +60,7 @@ class HTML {
             return metaData;
        }
 
-
     }
-
     class Body extends HTML{
         constructor(){
             super();
@@ -83,31 +82,52 @@ class HTML {
                 let articleTitle = $('article').children('h1').html();
                 let articleAuthor = $('div[class="author articleLabel"]').text();
                 
-                let articleDate = moment(articleAuthor, 'MM/DD/YYYY').format('MM/DD/YYYY');
+                let articleDate = moment(articleAuthor, 'MM/DD/YYYY').format();
+                let formatedTime = moment(articleDate).format('MM/DD/YYYY');
                 articleAuthor = articleAuthor.slice(3, -12);
-                articleData.articleAuthor = articleAuthor ;
+                articleData.formatedTime = formatedTime;
+                articleData.articleAuthor = articleAuthor;
                 articleData.articleTitle = articleTitle;
                 articleData.articleDate = articleDate;
-                return articleData;
+                
             }
             //looks for an aside with social links and grabs their URL
             if($('aside[class="socialLinks"]').length !=0){
-                //TODO Fix THis
+                //console.log($('a[data-social-type="facebook"]').attr('href'));
                 let socialLinks = [];
-                let social = $('aside').html();
-                
-                //console.log('social foinud',social);
-            }  
+                let social = $('aside').attr('href');
+                articleData.socialMedia = social;
+            } 
+            return articleData; 
             
         }
         getArticleContent($){
             if($('article').length != 0){
                 let articleContent = $('article').find('p').text();
+                //console.log(articleContent);
                 return articleContent;
             }
         }
+        getMedia($){
+            let media = {};
+
+            if($('img').length != 0){
+                media.img = $('img').attr('src');
+            }
+            if($('video').length != 0){
+                media.video = $('video').attr('src');
+            }
+
+            return media;
+        }
+        getFooter($){
+            let footer;
+            footer = $('footer').html();
+            return footer;
+
+        }
     }
-    class style extends HTML{
+    class Style extends HTML{
         constructor(){
             super();
         }
@@ -117,7 +137,5 @@ class HTML {
                 return style;
             }
         }
-
     }
-
-    module.exports = {HTML,Head,Body,style};
+    module.exports = {HTML,Head,Body,Style};

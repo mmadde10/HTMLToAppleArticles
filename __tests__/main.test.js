@@ -1,10 +1,8 @@
-import * as Jest from 'jest';
-import * as htmlDocument from '../src/htmlDocument';
-import * as cheerio from 'cheerio';
+import {Notitia} from '../src/main';
+import * as pretty from 'html';
 
-//Test Data
-let contents = `
-<html lang = "en-US">
+
+let contents = `<html lang = "en-US">
 <head>
 <title>On the waterfront: Pros and cons</title>
 <link rel="canonical" href="https://www.guaranteedrate.com/resources/on-the-waterfront-pros-cons">
@@ -66,157 +64,43 @@ let contents = `
             </div>
             </div>
             </div>
-    </article>
-    <footer class="footer-content-container" itemtype="http://schema.org/WPFooter">
-    <div class="container">
-            
+        </article>
+        </body>
+    </html>`;
 
-<div class="graMainFooterNavMod row basic-module">
-
-<div class="backToTop visible-xs itemWrapper">
-    <a class="itemLabel" href="#top">BACK TO TOP</a>
-</div>
-<div class="top">
-    <div class="col-md-2 col-lg-1 hidden-xs">
-        <a class="grLogo__main" itemprop="url" href="https://www.grarate.com">
-            <img itemprop="logo" alt="" src="http://s3.amazonaws.com/grate-cms/d9372dbc-3a87-48c2-89c6-007d57f55931_gr-logo-dark-responsive.svg">
-        </a>
-    </div>
-</div>
-
-<div class="bottom">
-    <a class="grLogo visible-xs" href="https://www.grarate.com">
-        <img alt="" src="http://s3.amazonaws.com/grate-cms/d9372dbc-3a87-48c2-89c6-007d57f55931_gr-logo-dark-responsive.svg">
-    </a>
-        <ul class="inlineList navList ">
-                <li>
-                    <a data-track="footer-find-loan-officer" href="/find-loan-officer">Find a Loan Expert</a>
-                </li>
-                <li>
-                    <a data-track="footer-site-map" href="/sitemap">Site Map</a>
-                </li>
-                <li>
-                    <a data-track="footer-licensing" href="/licensing">Licensing</a>
-                </li>
-                <li>
-                    <a data-track="footer- disclaimer" href="/disclaimer"> Disclaimer</a>
-                </li>
-                <li>
-                    <a data-track="footer-terms-of-use" href="/terms"> Terms of Use</a>
-                </li>
-                <li>
-                    <a data-track="footer- privacy-policy" href="/privacy-policy"> Privacy Policy</a>
-                </li>
-                <li>
-                    <a data-track="footer-insurance" href="http://www.guaranteedrateinsurance.com/">Insurance</a>
-                </li>
-        </ul>
-</div>
-
-</div>    
-    <div class="footNoteMod smallLegal basic-module">
-        <center>
-        <p>Copyright © 2000-2017 Guaranteed Rate. All rights reserved.</p> 
-        <img src="https://dih4lvql8rjzt.cloudfront.net/cms/af99fb6e-97ea-4823-9925-97e95ce0bc01_ehl-logo-dark.svg" style="width:150px">
-        <p>Illinois Residential Mortgage Licensee NMLS License #2611<br> 3940 N. Ravenswood Chicago, IL 60613 - (866) 934-7283<br></p>
-            <ul class="inlineList">
-                        <li><a target="_blank" title="NMLS Consumer Access" href="http://www.nmlsconsumeraccess.org/">NMLS Consumer Access </a></li>
-                        <li><a target="_blank" title="Texas Consumers: How to File a Complaint" href="https://texreg.sos.state.tx.us/fids/201203137-2.pdf">Texas Consumers: How to File a Complaint</a></li>
-                        <li><a target="_blank" title="Delaware Licensed Loan Officers" href="https://s3.amazonaws.com/grate-cms/6fb10cb0-58df-4ad6-9766-b606eb73d88a_GRI_DE_licensed_MLOs_PDF_10.20.16.pdf">Delaware Licensed Loan Officers</a></li>
-            </ul>
-        </center>
-    </div>
-</footer>
-    <body>
-</html>`;
-
-/*
-End of Test Data
-
-Start of Tests
-*/
-
-const heads = new htmlDocument.Head();
-const bodies = new htmlDocument.Body();
-const documents = new htmlDocument.HTML(contents);
-const style = new htmlDocument.Style();
+    describe('See if main project Works', () => {
+            test('Main Project FB Aticle', () => {
+                let instantArticle = Notitia(1,contents);
+                let prettyArticle = pretty.prettyPrint(instantArticle, {indent_size: 2});
+                //console.log("finish\n",prettyArticle);
+                console.log("finish\n",instantArticle);
+                expect(instantArticle).not.toBeNull();
+            });
 
 
-describe('HTML Object', () => {
-    
-    let $ = documents.loadDocument(contents);
+            test('Main Project not correct', () => {
+                let instantArticle = Notitia(12,contents);
+                let prettyArticle = pretty.prettyPrint(instantArticle, {indent_size: 2});
+              //  console.log("finish\n",prettyArticle);
+                expect(instantArticle).toBeNull();
+            });
 
-    test('Is document Loaded', () => {
-        let $$ = documents.loadDocument(contents);
-        //console.log(`Document: ${$$}\n`);
-      expect($$).not.toBeNull();
-    });
-    test('Is HTML Selected?', () => {
-        let documentHTML = documents.getElement($);
-        //console.log(`HTML: ${documentHTML}\n`);
-        expect(documentHTML).not.toBeNull();
-    });
-    test('Is language Found?', () => {
-        let languange = documents.getLanguage($);
-        //console.log(`Language: ${languange}\n`);
-        expect(languange).not.toBeNull();
-    });
-});
-
-describe('Head Object', () => {
-
-    let $ = documents.loadDocument(contents);
-    test('Find head Element', () => {
-        let head = heads.getElement($);
-        //console.log(`Head: ${head}`);
-        expect(head).not.toBeNull();
-    });
-    test('Getting Meta Data', () => {
-        let meta = heads.getMetaData($);
-        //console.log(`Meta Cononical:${meta.canonical}, Meta Title\n${meta.title}`);
-        expect(meta).not.toBeNull();
     });
 
-});
+    describe('Testing AMP Pages in main', () => {
+        
+        test('Main Project AMP Page', () => {
+            let ampPage = Notitia(2,contents);
+            let prettyArticle = pretty.prettyPrint(ampPage, {indent_size: 2}); 
+            //console.log("finish\n",prettyArticle);
+            expect(ampPage).not.toBeNull();
+        });
 
-describe('Body Object', () => {
+        test('Main Project AMP Page test body', () => {
+            let ampPage = Notitia(2,contents,1);
+            let prettyArticle = pretty.prettyPrint(ampPage, {indent_size: 2}); 
+            //console.log("finish AMP\n",prettyArticle);
+            expect(ampPage).not.toBeNull();
+        });
 
-    let $ = documents.loadDocument(contents);
-
-    test('Get Body Element', () => {
-        let body = bodies.getElement($);
-        //console.log(`Body:\n ${body}`);
-        expect(body).not.toBeNull();
     });
-    test('Get Article Data', () => {
-        let articleData = bodies.getArticleData($);
-        //console.log(`Article Title: ${articleData.articleTitle}\nArticle Author:${articleData.articleAuthor}\nArticle Date:${articleData.articleDate}`);
-//console.log(`Social Media: ${articleData.socialMedia}`);
-        expect(articleData).not.toBeNull();
-    });
-    test('Getting Article Content', () => {
-        let articleContent = bodies.getArticleContent($);
-        //console.log(`Article Content:\n${articleContent}`);
-        expect(articleContent).not.toBeNull();
-    });
-    test('Getting Article Media', () => {
-        let articleMedia = bodies.getMedia($);
-        //console.log(`Article img: ${articleMedia.img}\n Article video: ${articleMedia.video}`);
-        expect(articleMedia).not.toBeNull();
-    });
-
-    test('Get Footer', () => {
-        let footer = bodies.getFooter($);
-        //console.log("footer\n",footer);
-        expect(footer).not.toBeNull();
-    });
-});
-
-describe('Style Object', () => {
-    let $ = documents.loadDocument(contents);
-    test('Getting Style', () => {
-        let styles = style.getElement($);
-        //console.log(`Style:\n${styles}`);
-        expect(styles).not.toBeNull();
-    });
-});
