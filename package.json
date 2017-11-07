@@ -1,7 +1,7 @@
 {
-  "name": "htmltoapplearticles",
-  "version": "1.0.0",
-  "description": "Convert Regular HTML article Pages into Apple Articles",
+  "name": "notitcia",
+  "version": "1.0.2",
+  "description": "Convert Regular HTML Article Pages into Google AMP Pages, Facebook Instant Articles or Apple Article Format",
   "main": "index.js",
   "scripts": {
     "start": "node bin/dev",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mmadde10/HTMLToAppleArticles.git"
+    "url": "git+https://github.com/mmadde10/Notitia.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["html", "amp", "facebook", "instant", "article", "converter", "ampit", "htmltoAMP", "htmltoFaceBookInstantArticle", "Accerated Mobile Pages","Apple Article","Apple"],
+  "author": "Mark Madden",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mmadde10/HTMLToAppleArticles/issues"
+    "url": "https://github.com/mmadde10/Notitia/issues"
   },
-  "homepage": "https://github.com/mmadde10/HTMLToAppleArticles#readme",
+  "homepage": "https://github.com/mmadde10/Notitia#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.2.0",
