@@ -70,34 +70,28 @@ let contents = `<html lang = "en-US">
 
     describe('See if main project Works', () => {
             test('Main Project FB Aticle', () => {
-                let instantArticle = Notitia(1,contents);
+                let Not = new Notitia(contents);
+                let instantArticle = Not.createFBInstantArticle(contents);
                 let prettyArticle = pretty.prettyPrint(instantArticle, {indent_size: 2});
                 //console.log("finish\n",prettyArticle);
                 console.log("finish\n",instantArticle);
                 expect(instantArticle).not.toBeNull();
             });
-
-
-            test('Main Project not correct', () => {
-                let instantArticle = Notitia(12,contents);
-                let prettyArticle = pretty.prettyPrint(instantArticle, {indent_size: 2});
-              //  console.log("finish\n",prettyArticle);
-                expect(instantArticle).toBeNull();
-            });
-
     });
 
     describe('Testing AMP Pages in main', () => {
         
         test('Main Project AMP Page', () => {
-            let ampPage = Notitia(2,contents);
+            let Not = new Notitia(contents);
+            let ampPage = Not.createAMPPage(contents);
             let prettyArticle = pretty.prettyPrint(ampPage, {indent_size: 2}); 
             //console.log("finish\n",prettyArticle);
             expect(ampPage).not.toBeNull();
         });
 
         test('Main Project AMP Page test body', () => {
-            let ampPage = Notitia(2,contents,1);
+            let Not = new Notitia(contents);
+            let ampPage = Not.createAMPBody(contents);
             let prettyArticle = pretty.prettyPrint(ampPage, {indent_size: 2}); 
             //console.log("finish AMP\n",prettyArticle);
             expect(ampPage).not.toBeNull();

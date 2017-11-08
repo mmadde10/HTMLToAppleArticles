@@ -3,18 +3,30 @@
 ### Convert Regular HTML article Pages into AMP Pages, Facebook Instant Artciles or Apple Articles
 
 
+#### Build Facebook Instant Article
 ```javascript
-let ampPage = Notitia(2,contents,1);
-let prettyArticle = pretty.prettyPrint(ampPage, {indent_size: 2}); 
-  console.log("finish AMP\n",prettyArticle);
+let Not = new Notitia(contents);
+let instantArticle = Not.createFBInstantArticle(contents);
+//Returns Facebook Instant Article Markup
+```
+#### Build AMP Page HTML
+```javascript
+let Not = new Notitia(contents);
+let ampPage = Not.createAMPPage(contents);
 //Returns AMP Complient HTML
 ```
+#### Build AMP Page HTML (Body Only)
 ```javascript
-let ampPage = Notitia(1,contents);
-let prettyArticle = pretty.prettyPrint(ampPage, {indent_size: 2}); 
-  console.log("finish FB\n",prettyArticle);
-//Returns FaceBook Instant Article HTML
+let Not = new Notitia(contents);
+let ampPageBody = Not.createAMPBody(contents);
+//Returns AMP Complient HTML (Body Only)
 ```
+
+__Note__
+CreateAMPBody Method will only return the body of the AMP HTML Page. 
+This will not pass the AMP Validator. 
+For More info visit [AMP's Documentation](https://www.ampproject.org/docs/getting-started/)
+
 ##                                                 Installation
 
 ```
