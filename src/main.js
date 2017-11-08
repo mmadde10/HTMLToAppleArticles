@@ -3,17 +3,16 @@ import * as htmlDocument from './htmlDocument';
 import * as fb from './fbArticle';
 import * as amp from './amp';
 
-function Notitia (articleType,contents,ampFlag){
-
-
-    if(contents != null || contents != undefined){
-        const heads = new htmlDocument.Head();
-        const bodies = new htmlDocument.Body();
-        const documents = new htmlDocument.HTML(contents);
-        const style = new htmlDocument.Style();
-
-        //Flag For FB instant Article
-        if(articleType == 1){
+class Notitia{
+    constructor(contents){
+        this.contents = contents;
+    }
+    createFBInstantArticle(contents){
+        if(contents != null || contents != undefined){
+            const heads = new htmlDocument.Head();
+            const bodies = new htmlDocument.Body();
+            const documents = new htmlDocument.HTML(contents);
+            const style = new htmlDocument.Style();
             const fbDocument = new fb.FBDocument(contents);
             let $ = documents.loadDocument(contents);
             let articleHeader = fbDocument.createArticleHeader($);
@@ -33,41 +32,36 @@ function Notitia (articleType,contents,ampFlag){
                 }
 
             return instantArticle;
-        }
-        //Flag For AMP Page
-        if(articleType == 2){
-
-            const amps = new amp.AMP(contents);
-            let $ = amps.getHTML(contents);
-            let cssTags = amps.fixTags($);
-            let ampHead = amps.buildHead($,cssTags);
-            let ampBody = amps.fixImgIframeTags($);
-            let ampHTML = `<!DOCTYPE html><html ⚡ lang="en">${ampHead}${ampBody}</html>`;
-
-            if(ampFlag == null || ampFlag == undefined){
-                return ampHTML
             }
-            else{
+    }
+        createAMPPage(contents){
+            if(contents != null || contents != undefined){
+                const heads = new htmlDocument.Head();
+                const bodies = new htmlDocument.Body();
+                const documents = new htmlDocument.HTML(contents);
+                const style = new htmlDocument.Style();
+                const amps = new amp.AMP(contents);
+                let $ = amps.getHTML(contents);
+                let cssTags = amps.fixTags($);
+                let ampHead = amps.buildHead($,cssTags);
+                let ampBody = amps.fixImgIframeTags($);
+                let ampHTML = `<!DOCTYPE html><html ⚡ lang="en">${ampHead}${ampBody}</html>`;
+
+                return ampHTML;
+            }
+        }
+        createAMPBody(contents){
+            if(contents != null || contents != undefined){
+                const heads = new htmlDocument.Head();
+                const bodies = new htmlDocument.Body();
+                const documents = new htmlDocument.HTML(contents);
+                const amps = new amp.AMP(contents);
+                let $ = amps.getHTML(contents);
+                let ampBody = amps.fixImgIframeTags($);
+
                 return ampBody;
+
             }
         }
-
-        /*
-        TODO Add Apple Articles
-        if(articleType == 3){
-
-        }
-        */
-
-        else{
-            return null;
-        }
     }
-
-    //No Content Found
-    else{
-        console.log("No Content Found ");
-        return null;
-    }
-};
 module.exports = {Notitia};
