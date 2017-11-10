@@ -3,7 +3,7 @@ import * as htmlDocument from './htmlDocument';
 import * as fb from './fbArticle';
 import * as amp from './amp';
 
-class Notitia{
+export default class Notitia{
     constructor(contents){
         this.contents = contents;
     }
@@ -64,4 +64,3 @@ class Notitia{
             }
         }
     }
-module.exports = {Notitia};
