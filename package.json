@@ -1,6 +1,6 @@
 {
   "name": "notitia",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Convert Regular HTML Article Pages into Google AMP Pages, Facebook Instant Articles or Apple Article Format",
   "main": "src/main.js",
   "scripts": {
