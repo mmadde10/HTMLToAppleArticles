@@ -1,12 +1,11 @@
+'use strict';
 import * as cheerio from 'cheerio';
 import * as htmlDocument from './htmlDocument';
 import * as fb from './fbArticle';
 import * as amp from './amp';
 
 class Notitia{
-    constructor(contents){
-        this.contents = contents;
-    }
+    
     createFBInstantArticle(contents){
         if(contents != null || contents != undefined){
             const heads = new htmlDocument.Head();
@@ -64,4 +63,5 @@ class Notitia{
             }
         }
     }
+
 module.exports = {Notitia};

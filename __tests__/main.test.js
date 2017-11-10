@@ -74,7 +74,7 @@ let contents = `<html lang = "en-US">
                 let instantArticle = Not.createFBInstantArticle(contents);
                 let prettyArticle = pretty.prettyPrint(instantArticle, {indent_size: 2});
                 //console.log("finish\n",prettyArticle);
-                console.log("finish\n",instantArticle);
+                //console.log("finish\n",instantArticle);
                 expect(instantArticle).not.toBeNull();
             });
     });

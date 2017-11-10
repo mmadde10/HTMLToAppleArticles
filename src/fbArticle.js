@@ -1,6 +1,6 @@
 'use strict';
 import moment from 'moment';
-import * as htmlDocument from '../src/htmlDocument';
+import * as htmlDocument from './htmlDocument';
 
 const heads = new htmlDocument.Head();
 const bodies = new htmlDocument.Body();
