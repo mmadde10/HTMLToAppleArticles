@@ -4,7 +4,7 @@ import * as htmlDocument from './htmlDocument';
 import * as fb from './fbArticle';
 import * as amp from './amp';
 
-export default class Notitia{
+class Notitia{
     
     createFBInstantArticle(contents){
         if(contents != null || contents != undefined){
@@ -63,3 +63,5 @@ export default class Notitia{
             }
         }
     }
+
+module.exports = {Notitia};

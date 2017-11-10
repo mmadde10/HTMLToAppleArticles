@@ -1,4 +1,4 @@
-import Notitia from '../src/main';
+import {Notitia} from '../src/main';
 import * as pretty from 'html';
 
 
