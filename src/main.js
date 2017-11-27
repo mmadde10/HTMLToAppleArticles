@@ -5,7 +5,6 @@ import * as fb from './fbArticle';
 import * as amp from './amp';
 
 class Notitia{
-    
     createFBInstantArticle(contents){
         if(contents != null || contents != undefined){
             const heads = new htmlDocument.Head();
@@ -43,10 +42,14 @@ class Notitia{
                 let $ = amps.getHTML(contents);
                 let cssTags = amps.fixTags($);
                 let ampHead = amps.buildHead($,cssTags);
-                let ampBody = amps.fixImgIframeTags($);
-                let ampHTML = `<!DOCTYPE html><html ⚡ lang="en">${ampHead}${ampBody}</html>`;
+                let fixedBody = amps.fixAndRemoveTags($);
+                let ampBody = amps.replaceSocialMedia($);
+                let footer = amps.getFooter($);
+                if(footer != null || footer != undefined){
+                    let ampHTML = `<!DOCTYPE html><html ⚡ lang="en">${ampHead}<body><article>${ampBody}</article></body>${footer}</html>`;
+                    return ampHTML;
+                }
 
-                return ampHTML;
             }
         }
         createAMPBody(contents){
@@ -56,9 +59,9 @@ class Notitia{
                 const documents = new htmlDocument.HTML(contents);
                 const amps = new amp.AMP(contents);
                 let $ = amps.getHTML(contents);
-                let ampBody = amps.fixImgIframeTags($);
-
-                return ampBody;
+                let ampBody = amps.fixAndRemoveTags($);
+                
+                return `${ampBody}`;
 
             }
         }

@@ -44,11 +44,6 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "html": "^1.0.0",
-    "jshint": "^2.9.5",
-    "moment": "^2.19.1",
-    "pretty": "^2.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "moment": "^2.19.2"
   }
 }
