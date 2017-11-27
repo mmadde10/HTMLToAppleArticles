@@ -204,12 +204,6 @@ describe('Body Object', () => {
         //console.log(`Article img: ${articleMedia.img}\n Article video: ${articleMedia.video}`);
         expect(articleMedia).not.toBeNull();
     });
-
-    test('Get Footer', () => {
-        let footer = bodies.getFooter($);
-        //console.log("footer\n",footer);
-        expect(footer).not.toBeNull();
-    });
 });
 
 describe('Style Object', () => {

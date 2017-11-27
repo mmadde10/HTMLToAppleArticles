@@ -82,7 +82,7 @@ class HTML {
                 let articleTitle = $('article').children('h1').html();
                 let articleAuthor = $('div[class="author articleLabel"]').text();
                 
-                let articleDate = moment(articleAuthor, 'MM/DD/YYYY').format();
+                let articleDate = moment(articleAuthor, 'MM/DD/YYYY');
                 let formatedTime = moment(articleDate).format('MM/DD/YYYY');
                 articleAuthor = articleAuthor.slice(3, -12);
                 articleData.formatedTime = formatedTime;
@@ -91,13 +91,6 @@ class HTML {
                 articleData.articleDate = articleDate;
                 
             }
-            //looks for an aside with social links and grabs their URL
-            if($('aside[class="socialLinks"]').length !=0){
-                //console.log($('a[data-social-type="facebook"]').attr('href'));
-                let socialLinks = [];
-                let social = $('aside').attr('href');
-                articleData.socialMedia = social;
-            } 
             return articleData; 
             
         }
@@ -123,8 +116,8 @@ class HTML {
         getFooter($){
             let footer;
             footer = $('footer').html();
+    
             return footer;
-
         }
     }
     class Style extends HTML{

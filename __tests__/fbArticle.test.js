@@ -2,7 +2,6 @@ import * as Jest from 'jest';
 import * as htmlDocument from '../src/htmlDocument';
 import * as cheerio from 'cheerio';
 import * as fb from '../src/fbArticle';
-import * as pretty from 'pretty';
 
 let contents = `<html lang = "en-US">
 <head>
