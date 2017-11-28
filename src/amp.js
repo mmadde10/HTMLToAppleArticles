@@ -63,14 +63,13 @@ class AMP {
                 return $.html();
             });
             $('style:not([amp-boilerplate])').each(function(){
-                
                     let oldStyle = $(this).html();
                     let newStyle = `<style amp-custom>${oldStyle}</style>`
                     $(this).replaceWith(newStyle);
 
             });
             
-       return $.html();
+       return $('body').html();
     }
     
     replaceSocialMedia($){

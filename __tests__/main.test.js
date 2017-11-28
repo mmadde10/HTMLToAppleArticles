@@ -1,48 +1,7 @@
 import {Notitia} from '../src/main';
 import * as Jest from 'jest';
 
-let contents = `<!DOCTYPE html>
-<html ⚡>
-<head>
-    <meta charset="utf-8">
-    <script async="" src="https://cdn.ampproject.org/v0.js"></script>
-    <link rel="canonical" href="https://www.gr-dev.com/resources/amp/great-home-project-find-the-right-window-treatments">
-    <style amp-boilerplate="">body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript>&lt;style amp-boilerplate&gt;body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}&lt;/style&gt;</noscript>
- 
-        
-<meta>
-
-<title>Great home project: Find the right window treatments</title>
-  <!-- define ogp and itemprop of microdata in one line -->
-  <meta property="og:title" itemprop="name" content="Great home project: Find the right window treatments">
-  <!-- define ogp image -->
-  <meta property="og:image" content="https://mx-images.guaranteedrate.com/RH/WindowTreatments1.jpg">
-  <!-- use link[href] to define image url for microdata --> 
-  <link itemprop="image" href="https://mx-images.guaranteedrate.com/RH/WindowTreatments1.jpg">
-  <!-- define ogp and itemprop of microdata in one line -->
-  <meta property="og:url" content="https://www.gr-dev.com/resources/amp/great-home-project-find-the-right-window-treatments">
-  <!-- define ogp type -->
-  <meta property="og:type" content="website">
-  <!-- define twitter cards type -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- define site's owner twitter id -->
-  <meta name="twitter:site" content="75200592">
-  <!-- define description for ogp and itemprop of microdata in one line -->
-  <meta property="og:description" itemprop="description" content="Of all the design decisions homeowners make when decorating a home — paint color, furniture, fabrics, rugs, lighting, accessories — window treatments often get overlooked or receive inadequate attention. But window treatments are an important piece of the decor puzzle in any home. Sure, curtains, drapes and blinds can complement a decor scheme and look &amp;hellip;  
-">
-  <!-- general description (separate with ogp and microdata) -->
-  <meta name="description" content="Of all the design decisions homeowners make when decorating a home — paint color, furniture, fabrics, rugs, lighting, accessories — window treatments often get overlooked or receive inadequate attention. But window treatments are an important piece of the decor puzzle in any home. Sure, curtains, drapes and blinds can complement a decor scheme and look &amp;hellip;  
-">
-
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<style id="yov">/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */body,figure{margin:0}.clearfix:after,.container-fluid:after,.container:after,.form-horizontal .form-group:after,.row:after{clear:both}.btn,.input-group-btn,.text-nowrap{white-space:nowrap}html{font-family:sans-serif;-ms-text-size-adjust:100%;
-</style>
-
-    <script async="" custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
-    <script async="" custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
-
-</head>
-<body class="kcRightRail amp-mode-touch" style="opacity: 1; visibility: visible; animation: none;">
+let contents = `<body class="kcRightRail amp-mode-touch" style="opacity: 1; visibility: visible; animation: none;">
 
     <style>.editBarMod {
   padding: 15px;
