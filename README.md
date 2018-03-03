@@ -1,5 +1,14 @@
   #                                               Notitia
 
+
+
+### DEPRECATED!!!!
+Please Use One of These Instead:
+  * [NotitiaConverter](https://github.com/mmadde10/NotitiaConverter)
+  * [TidbitAMPConverter](https://github.com/mmadde10/Tidbit_AMP_Converter)
+
+
+
 ### Convert Regular HTML article Pages into AMP Pages or Facebook Instant Articles
 
 
